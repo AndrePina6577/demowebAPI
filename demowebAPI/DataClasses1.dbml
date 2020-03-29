@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Videoclube" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=Videoclube.mssql.somee.com;Initial Catalog=Videoclube;Persist Security Info=True;User ID=AndrePina6577_SQLLogin_1" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VideoclubeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categorias" Member="Categorias">
+    <Type Name="Categoria">
+      <Column Name="Sigla" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Categoria" Member="Categoria1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Categoria_Filme" Member="Filmes" ThisKey="Sigla" OtherKey="Categoria" Type="Filme" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Filmes" Member="Filmes">
+    <Type Name="Filme">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="Categoria_Filme" Member="Categoria1" ThisKey="Categoria" OtherKey="Sigla" Type="Categoria" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
